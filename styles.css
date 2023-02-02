@@ -1,0 +1,25 @@
+html {
+  min-inline-size: 100%;
+}
+
+body {
+  min-inline-size: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  word-break: keep-all;
+  hyphens: none;
+  -moz-hyphens: none;
+  -webkit-hyphens: none;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  font-family: sans-serif;
+  color: white;
+  font-size: 16px;
+  line-height: 1.5;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-content: center;
+}
