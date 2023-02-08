@@ -25,6 +25,13 @@ body {
   align-content: center;
 }
 
+main {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  border: red solid 2px;
+}
+
 #calculator {
   display: grid;
   grid:
