@@ -15,12 +15,113 @@ body {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   font-family: sans-serif;
-  background-color: darkolivegreen;
+  background-color: lightblue;
   color: black;
   font-size: 16px;
   line-height: 1.5;
   display: flex;
   flex-flow: column wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+#calculator {
+  display: grid;
+  grid:
+    "display display display display" 4rem
+    "reset slash star minus" 4rem
+    "seven eight nine plus" 4rem
+    "four five six plus" 4rem
+    "one two three enter" 4rem
+    "zero zero period enter" 4rem
+    / 4rem 4rem 4rem 4rem;
+  gap: 1rem;
+}
+
+#display {
+  grid-area: display;
+  border: black solid 5px;
+  border-radius: 0.75rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+  align-content: center;
+  font-size: 2rem;
+}
+
+#reset {
+  grid-area: reset;
+}
+
+#slash {
+  grid-area: slash;
+}
+
+#star {
+  grid-area: star;
+}
+
+#minus {
+  grid-area: minus;
+}
+
+#seven {
+  grid-area: seven;
+}
+
+#eight {
+  grid-area: eight;
+}
+
+#nine {
+  grid-area: nine;
+}
+
+#plus {
+  grid-area: plus;
+}
+
+#four {
+  grid-area: four;
+}
+
+#five {
+  grid-area: five;
+}
+
+#six {
+  grid-area: six;
+}
+
+#one {
+  grid-area: one;
+}
+
+#two {
+  grid-area: two;
+}
+
+#three {
+  grid-area: three;
+}
+
+#enter {
+  grid-area: enter;
+}
+
+#zero {
+  grid-area: zero;
+}
+
+#period {
+  grid-area: period;
+}
+
+.calcKey {
+  border: black solid 5px;
+  border-radius: 0.75rem;
+  display: flex;
+  flex-flow: row wrap;
   justify-content: center;
   align-content: center;
 }
