@@ -28,11 +28,11 @@ body {
   font: League Spartan;
   font-size: 32px;
   font-weight: 700;
-  line-height: 1.5;
+  line-block-size: 1.5;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  align-content: flex-end;
+  align-content: center;
   border: white solid 2rem;
 }
 
@@ -50,9 +50,9 @@ main {
   flex-flow: column nowrap;
   justify-content: space-between;
   align-content: center;
-  width: 30rem;
+  inline-size: 30rem;
   row-gap: 2rem;
-  border: hsl(0, 0%, 100%) solid 1px;
+  /* border: hsl(0, 0%, 100%) solid 1px; */
 }
 
 #calcHead {
@@ -60,31 +60,71 @@ main {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  align-content: center;
+  /* border: hsl(0, 0%, 100%) solid 1px; */
 }
 
 #toggle {
   display: flex;
-
-  background-color: hsl(223, 31%, 20%);
+  flex-flow: row nowrap;
+  align-content: center;
+  justify-content: space-between;
   color: hsl(0, 0%, 100%);
+  font-size: 0.8rem;
+  inline-size: 8rem;
+  /* border: hsl(0, 0%, 100%) solid 1px; */
+}
+
+#calc {
+  align-self: center;
+  /* border: hsl(0, 0%, 100%) solid 1px; */
+}
+
+#selector {
+  block-size: 100%;
+  /* border: hsl(0, 0%, 100%) solid 1px; */
+  align-self: flex-end;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+
+#theme {
+  align-self: flex-end;
+}
+
+#themeNumbers {
+  display: flex;
+  justify-content: space-around;
+  inline-size: 4.5rem;
 }
 
 #themeSelector {
   background-color: hsl(6, 63%, 50%);
-  width: 1rem;
-  height: 1rem;
+  inline-size: 1rem;
+  block-size: 1rem;
   border-radius: 50%;
 }
+
+#sliderBar {
+  inline-size: 4.5rem;
+  background-color: hsl(223, 31%, 20%);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+}
+
 #display {
   /* grid-area: display; */
   /* margin-bottom: 2rem; */
   padding: 1rem;
-  height: 4rem;
-  width: 28rem;
+  block-size: 4rem;
+  inline-size: 28rem;
   background-color: hsl(224, 36%, 15%);
   /* border: black solid 1px; */
   color: hsl(0, 0%, 100%);
-  border-radius: 0.75rem;
+  border-radius: 1rem;
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-end;
@@ -102,11 +142,12 @@ main {
     "reset reset enter enter" 3rem
     / 5.75rem 5.75rem 5.75rem 5.75rem;
   gap: 1rem;
-  width: 28rem;
+  inline-size: 28rem;
   justify-content: center;
   /* border: hsl(0, 0%, 100%) solid 1px; */
   background-color: hsl(223, 31%, 20%);
   padding: 1rem;
+  border-radius: 1rem;
 }
 
 #del {
@@ -197,6 +238,7 @@ main {
   flex-flow: row wrap;
   justify-content: center;
   align-content: center;
+  font-size: 2rem;
 }
 
 .attribution {
@@ -210,5 +252,5 @@ main {
 }
 
 .attribution a {
-  color: hsl(221, 14%, 31%);
+  color: hsl(0, 0, 100%);
 }
