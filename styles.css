@@ -242,12 +242,14 @@ main {
 }
 
 .attribution {
+  inline-size: 25rem;
   margin-top: 1rem;
+  align-self: center;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   font-size: 11px;
   text-align: center;
-  justify-self: flex-end;
+
   align-items: center;
 }
 
