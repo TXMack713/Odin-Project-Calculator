@@ -5,7 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Odin Project Calculator</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Odin Project | Frontend Mentor Calculator App</title>
   </head>
   <body>
     <header>
@@ -13,9 +19,20 @@
       <h3>Please complete your computations below</h3>
     </header>
     <main>
+      <article id="calcHead">
+        <div id="calc">calc</div>
+        <div id="toggle">
+          <div id="theme">theme</div>
+          <div id="theme1">1</div>
+          <div id="theme2">2</div>
+          <div id="theme3">3</div>
+          <button id="themeSelector"></button>
+        </div>
+      </article>
+      <article id="display">Display</article>
       <article id="calculator">
-        <div id="display">Display</div>
-        <div class="calcKey" id="reset">C</div>
+        <div class="calcKey" id="del">DEL</div>
+        <div class="calcKey" id="reset">RESET</div>
         <div class="calcKey" id="slash">/</div>
         <div class="calcKey" id="star">*</div>
         <div class="calcKey" id="minus">-</div>
@@ -29,11 +46,17 @@
         <div class="calcKey" id="one">1</div>
         <div class="calcKey" id="two">2</div>
         <div class="calcKey" id="three">3</div>
-        <div class="calcKey" id="enter">Enter</div>
+        <div class="calcKey" id="enter">=</div>
         <div class="calcKey" id="zero">0</div>
         <div class="calcKey" id="period">.</div>
       </article>
     </main>
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Styling by Frontend Mentor</a
+      >. Coded by <a href="https://github.com/TXMack713">Anthony Mack</a>.
+    </div>
     <script src="index.js"></script>
   </body>
 </html>
