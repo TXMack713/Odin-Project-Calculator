@@ -44,6 +44,11 @@ h3 {
   font-size: 1.5rem;
 }
 
+header {
+  text-align: center;
+  justify-self: center;
+}
+
 main {
   align-self: center;
   display: flex;
@@ -255,4 +260,5 @@ main {
 
 .attribution a {
   color: hsl(0, 0, 100%);
+  /* text-decoration: none; */
 }

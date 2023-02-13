@@ -1,69 +1,115 @@
-const add = function (num1, num2) {
+let num1 = [],
+  num2 = [];
+
+// function operate(num1, num2)
+
+function add(num1, num2) {
   return num1 + num2;
-};
+}
 
-const subtract = function (num1, num2) {
+function subtract(num1, num2) {
   return num1 - num2;
-};
+}
 
-const sum = function (entry) {
-  let total = 0;
-  if (entry.length == 0 || entry == "") {
-    return 0;
-  } else if (entry.length == 1) {
-    total = entry * 1;
-    return total;
-  } else if (entry.length >= 2) {
-    total = 0;
-    // let array = Array.from(entry);
-    for (let item of entry) {
-      console.log("summing");
-      console.log(item);
-      total += item;
-      console.log("summing total");
-      console.log(total);
-    }
-    return total;
+function multiply(num1, num2) {
+  return num1 * num2;
+}
+
+function divide(num1, num2) {
+  return num1 / num2;
+}
+
+// Get all the button elements to add event listeners
+const display = document.getElementById("display");
+if (num1 == "") {
+  display.textContent = 0;
+}
+// display.textContent = num1;
+
+const themeSelector = document.getElementById("themeSelector");
+
+const del = document.getElementById("del");
+
+// del.addEventListener("click", () => {
+//   display.innerHTML =
+// });
+
+const reset = document.getElementById("reset");
+
+const enter = document.getElementById("enter");
+
+const plus = document.getElementById("plus");
+
+const minus = document.getElementById("minus");
+
+const star = document.getElementById("star");
+
+const slash = document.getElementById("slash");
+
+const nine = document.getElementById("nine");
+nine.addEventListener("click", () => {
+  num1.push(9);
+  display.textContent = num1.join("");
+});
+
+const eight = document.getElementById("eight");
+eight.addEventListener("click", () => {
+  num1.push(8);
+  display.textContent = num1.join("");
+});
+
+const seven = document.getElementById("seven");
+seven.addEventListener("click", () => {
+  num1.push(7);
+  display.textContent = num1.join("");
+});
+
+const six = document.getElementById("six");
+six.addEventListener("click", () => {
+  num1.push(6);
+  display.textContent = num1.join("");
+});
+
+const five = document.getElementById("five");
+five.addEventListener("click", () => {
+  num1.push(5);
+  display.textContent = num1.join("");
+});
+
+const four = document.getElementById("four");
+four.addEventListener("click", () => {
+  num1.push(4);
+  display.textContent = num1.join("");
+});
+
+const three = document.getElementById("three");
+three.addEventListener("click", () => {
+  num1.push(3);
+  display.textContent = num1.join("");
+});
+
+const two = document.getElementById("two");
+two.addEventListener("click", () => {
+  num1.push(2);
+  display.textContent = num1.join("");
+});
+
+const one = document.getElementById("one");
+one.addEventListener("click", () => {
+  num1.push(1);
+  display.textContent = num1.join("");
+});
+
+const zero = document.getElementById("zero");
+zero.addEventListener("click", () => {
+  num1.push(0);
+  display.textContent = num1.join("");
+});
+
+const period = document.getElementById("period");
+period.addEventListener("click", () => {
+  if (!num1.includes(".")) {
+    num1.push(".");
   }
-};
-
-const multiply = function (nums) {
-  let total = 1;
-  // let array = Array.from(nums);
-  for (let num of nums) {
-    console.log("multiplying");
-    console.log(num);
-    total *= num;
-    console.log("multiplication total");
-    console.log(total);
-  }
-  return total;
-};
-
-const power = function (num1, num2) {
-  return Math.pow(num1, num2);
-};
-
-const factorial = function (num) {
-  let total = 1;
-  if (num < 0) {
-    return "ERROR";
-  } else if (num == 0) {
-    return 1;
-  } else if (num > 0) {
-    for (let i = 1; i <= num; i++) {
-      total *= i;
-    }
-    return total;
-  }
-};
-
-// Do not edit below this line
-module.exports = {
-  add,
-  subtract,
-  sum,
-  multiply,
-  power,
-  factorial,
-};
+  display.textContent = num1.join("");
+});
