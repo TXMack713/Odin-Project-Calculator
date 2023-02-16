@@ -26,7 +26,25 @@ if (num1 == "") {
 }
 // display.textContent = num1;
 
+const sliderBar = document.getElementById("sliderBar");
+
 const themeSelector = document.getElementById("themeSelector");
+
+themeSelector.addEventListener("click", moveThemeButton);
+
+function moveThemeButton() {
+  console.log(sliderBar.style.justifyContent);
+  if (sliderBar.style.justifyContent.v == "flex-start") {
+    sliderBar.style.justifyContent = "center";
+    alert(sliderBar.style.justifyContent);
+  } else if (sliderBar.style.justifyContent == "center") {
+    sliderBar.style.justifyContent = "flex-end";
+    alert(sliderBar.style.justifyContent);
+  } else if (sliderBar.style.justifyContent == "flex-end") {
+    sliderBar.style.justifyContent == "flex-start";
+    alert(sliderBar.style.justifyContent);
+  }
+}
 
 const del = document.getElementById("del");
 
@@ -35,6 +53,12 @@ const del = document.getElementById("del");
 // });
 
 const reset = document.getElementById("reset");
+reset.addEventListener("click", () => {
+  num1 = [];
+  if (num1 == "") {
+    display.textContent = 0;
+  }
+});
 
 const enter = document.getElementById("enter");
 
