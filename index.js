@@ -33,18 +33,53 @@ const themeSelector = document.getElementById("themeSelector");
 themeSelector.addEventListener("click", moveThemeButton);
 
 function moveThemeButton() {
-  console.log(sliderBar.style.justifyContent);
-  if (sliderBar.style.justifyContent.v == "flex-start") {
-    sliderBar.style.justifyContent = "center";
-    alert(sliderBar.style.justifyContent);
-  } else if (sliderBar.style.justifyContent == "center") {
-    sliderBar.style.justifyContent = "flex-end";
-    alert(sliderBar.style.justifyContent);
-  } else if (sliderBar.style.justifyContent == "flex-end") {
-    sliderBar.style.justifyContent == "flex-start";
-    alert(sliderBar.style.justifyContent);
+  console.log(sliderBar.className);
+  if (sliderBar.className == "sliderStart") {
+    sliderBar.classList.remove("sliderStart");
+    sliderBar.classList.add("sliderCenter");
+    // alert(sliderBar.classList);
+  } else if (sliderBar.className == "sliderCenter") {
+    sliderBar.classList.remove("sliderCenter");
+    sliderBar.classList.add("sliderEnd");
+    // alert(sliderBar.classList);
+  } else if (sliderBar.className == "sliderEnd") {
+    sliderBar.classList.remove("sliderEnd");
+    sliderBar.classList.add("sliderStart");
+    // alert(sliderBar.classList);
   }
 }
+
+function setTheme1() {
+  const body = document.getElementsByTagName("body");
+
+  body.style.backgroundColor = "hsl(222,26%,31%)";
+
+  body.style.color = "hsl(0,0%,100%)";
+
+  const sliderBar = document.getElementById("sliderBar");
+
+  sliderBar.style.backgroundColor = "hsl(223,31%,20%)";
+
+  const display = document.getElementById("display");
+
+  display.style.backgroundColor = "hsl(224,36%,15%)";
+
+  display.style.color = "hsl(0,0%,100%)";
+
+  const calculator = document.getElementById("calculator");
+
+  calculator.style.backgroundColor = "hsl(223,31%,20%)";
+
+  const calcKey = document.getElementsByClassName("calcKey");
+
+  calcKey.style.backgroundColor = "hsl(0,0%,100%)";
+
+  calcKey.style.color = "hsl(221,14%,31%)";
+}
+
+function setTheme2() {}
+
+function setTheme3() {}
 
 const del = document.getElementById("del");
 

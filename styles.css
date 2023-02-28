@@ -115,9 +115,27 @@ main {
   inline-size: 4.5rem;
   background-color: hsl(223, 31%, 20%);
   border-radius: 0.5rem;
+  /* display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start; */
+}
+
+.sliderStart {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
+}
+
+.sliderCenter {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+.sliderEnd {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
 }
 
 #display {
@@ -236,7 +254,7 @@ main {
 .calcKey {
   /* border: black solid 5px; */
   background-color: hsl(0, 0%, 100%);
-  color: hsl(225, 14%, 31%);
+  color: hsl(221, 14%, 31%);
   box-shadow: 0.5rem;
   border-radius: 0.75rem;
   display: flex;
