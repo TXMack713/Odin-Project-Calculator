@@ -53,113 +53,21 @@ function moveThemeButton() {
 }
 
 function setTheme1() {
-  const body = document.getElementsByTagName("body");
-  body.style.backgroundColor = "hsl(222,26%,31%)";
-  body.style.color = "hsl(0,0%,100%)";
-
-  const sliderBar = document.getElementById("sliderBar");
-  sliderBar.style.backgroundColor = "hsl(223,31%,20%)";
-
-  const display = document.getElementById("display");
-  display.style.backgroundColor = "hsl(224,36%,15%)";
-  display.style.color = "hsl(0,0%,100%)";
-
-  const calculator = document.getElementById("calculator");
-  calculator.style.backgroundColor = "hsl(223,31%,20%)";
-
-  const calcKey = document.getElementsByClassName("calcKey");
-  calcKey.style.backgroundColor = "hsl(0,0%,100%)";
-  calcKey.style.color = "hsl(221,14%,31%)";
-  calcKey.style.boxShadow = "0rem 0.125rem hsl(28, 16%, 65%)";
-
-  const reset = document.getElementById("reset");
-  reset.style.backgroundColor = "hsl(225,21%,49%)";
-  reset.style.color = "hsl(0,0%,100%)";
-  reset.style.boxShadow = "0rem 0.125rem hsl(224, 28%, 35%)";
-
-  const del = document.getElementById("del");
-  del.style.backgroundColor = "hsl(225,21%,49%)";
-  del.style.color = "hsl(0,0%,100%)";
-  del.style.boxShadow = "0rem 0.125rem hsl(224, 28%, 35%)";
-
-  const enter = document.getElementById("enter");
-  enter.style.backgroundColor = "hsl(6,63%,50%)";
-  enter.style.color = "hsl(0,0%,100%)";
-  enter.style.boxShadow = "0rem 0.125rem hsl(6, 70%, 34%)";
+  const root = document.querySelector(":root");
+  root.classList.remove("theme3");
+  root.classList.add("theme1");
 }
 
 function setTheme2() {
-  // resume here
-  const body = document.getElementsByTagName("body");
-  body.style.backgroundColor = "hsl(0,0%,90%)";
-  body.style.color = "hsl(0,0%,100%)";
-
-  const sliderBar = document.getElementById("sliderBar");
-  sliderBar.style.backgroundColor = "hsl(0,5%,81%)";
-
-  const display = document.getElementById("display");
-  display.style.backgroundColor = "hsl(224,36%,15%)";
-  display.style.color = "hsl(0,0%,93%)";
-
-  const calculator = document.getElementById("calculator");
-  calculator.style.backgroundColor = "hsl(0,5%,81%)";
-
-  const calcKey = document.getElementsByClassName("calcKey");
-  calcKey.style.backgroundColor = "hsl(185,42%,37%)";
-  calcKey.style.color = "hsl(221,14%,31%)";
-  calcKey.style.boxShadow = "0rem 0.125rem hsl(28, 16%, 65%)";
-
-  const reset = document.getElementById("reset");
-  reset.style.backgroundColor = "hsl(225,21%,49%)";
-  reset.style.color = "hsl(0,0%,100%)";
-  reset.style.boxShadow = "0rem 0.125rem hsl(224, 28%, 35%)";
-
-  const del = document.getElementById("del");
-  del.style.backgroundColor = "hsl(225,21%,49%)";
-  del.style.color = "hsl(0,0%,100%)";
-  del.style.boxShadow = "0rem 0.125rem hsl(224, 28%, 35%)";
-
-  const enter = document.getElementById("enter");
-  enter.style.backgroundColor = "hsl(6,63%,50%)";
-  enter.style.color = "hsl(0,0%,100%)";
-  enter.style.boxShadow = "0rem 0.125rem hsl(6, 70%, 34%)";
+  const root = document.querySelector(":root");
+  root.classList.remove("theme1");
+  root.classList.add("theme2");
 }
 
 function setTheme3() {
-  // finish theme 2
-  const body = document.getElementsByTagName("body");
-  body.style.backgroundColor = "hsl(0,0%,90%)";
-  body.style.color = "hsl(0,0%,100%)";
-
-  const sliderBar = document.getElementById("sliderBar");
-  sliderBar.style.backgroundColor = "hsl(0,5%,81%)";
-
-  const display = document.getElementById("display");
-  display.style.backgroundColor = "hsl(224,36%,15%)";
-  display.style.color = "hsl(0,0%,93%)";
-
-  const calculator = document.getElementById("calculator");
-  calculator.style.backgroundColor = "hsl(0,5%,81%)";
-
-  const calcKey = document.getElementsByClassName("calcKey");
-  calcKey.style.backgroundColor = "hsl(185,42%,37%)";
-  calcKey.style.color = "hsl(221,14%,31%)";
-  calcKey.style.boxShadow = "0rem 0.125rem hsl(28, 16%, 65%)";
-
-  const reset = document.getElementById("reset");
-  reset.style.backgroundColor = "hsl(225,21%,49%)";
-  reset.style.color = "hsl(0,0%,100%)";
-  reset.style.boxShadow = "0rem 0.125rem hsl(224, 28%, 35%)";
-
-  const del = document.getElementById("del");
-  del.style.backgroundColor = "hsl(225,21%,49%)";
-  del.style.color = "hsl(0,0%,100%)";
-  del.style.boxShadow = "0rem 0.125rem hsl(224, 28%, 35%)";
-
-  const enter = document.getElementById("enter");
-  enter.style.backgroundColor = "hsl(6,63%,50%)";
-  enter.style.color = "hsl(0,0%,100%)";
-  enter.style.boxShadow = "0rem 0.125rem hsl(6, 70%, 34%)";
+  const root = document.querySelector(":root");
+  root.classList.remove("theme2");
+  root.classList.add("theme3");
 }
 
 const del = document.getElementById("del");
