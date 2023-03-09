@@ -1,30 +1,16 @@
-let num1 = [],
-  num2 = [];
+let num1 = "",
+  num2 = "",
+displayHolder = [];
 
-// function operate(num1, num2)
 
-function add(num1, num2) {
-  return num1 + num2;
-}
-
-function subtract(num1, num2) {
-  return num1 - num2;
-}
-
-function multiply(num1, num2) {
-  return num1 * num2;
-}
-
-function divide(num1, num2) {
-  return num1 / num2;
-}
 
 // Get all the button elements to add event listeners
 const display = document.getElementById("display");
-if (num1 == "") {
+if (displayHolder.length == 0) {
   display.textContent = 0;
+} else {
+  display.textContent = displayHolder.join("");
 }
-// display.textContent = num1;
 
 const sliderBar = document.getElementById("sliderBar");
 
@@ -72,92 +58,181 @@ function setTheme3() {
 
 const del = document.getElementById("del");
 
-// del.addEventListener("click", () => {
-//   display.innerHTML =
-// });
+del.addEventListener("click", () => {
+  displayHolder.pop();
+  display.textContent = displayHolder.join("");
+});
 
 const reset = document.getElementById("reset");
 reset.addEventListener("click", () => {
-  num1 = [];
-  if (num1 == "") {
+  num1 = "";
+  num2 = "";
+  displayHolder = [];
+  if (displayHolder.length == 0) {
     display.textContent = 0;
   }
 });
 
-const enter = document.getElementById("enter");
+function operate(operator,num1, num2) {
+  let number1 = 0, number2 = 0;
+  if (num1.contains(".")) {
+    number1 = parseFloat(num1);
+  } else {
+    number1 = parseInt(num1);
+  }
+
+  if (num2.contains(".")) {
+    number2 = parseFloat(num2);
+  } else {
+    number2 = parseInt(num2);
+  }
+
+  return operator(number1,number2);
+}
+
+function add(num1, num2) {
+  return num1 + num2;
+}
+
+function subtract(num1, num2) {
+  return num1 - num2;
+}
+
+function multiply(num1, num2) {
+  return num1 * num2;
+}
+
+function divide(num1, num2) {
+  return num1 / num2;
+}
 
 const plus = document.getElementById("plus");
+plus.addEventListener("click", () => {
+  if(displayHolder.length == 0) {
+    num1 = 0;
+  } else {
+    num1 = displayHolder.join("");
+    displayHolder = [];
+  }
+  operate(add(), num1, num2);
+});
 
 const minus = document.getElementById("minus");
+minus.addEventListener("click", () => {
+  if(displayHolder.length == 0) {
+    num1 = 0;
+  } else {
+    num1 = displayHolder.join("");
+    displayHolder = [];
+  }
+});
 
 const star = document.getElementById("star");
+star.addEventListener("click", () => {
+  if(displayHolder.length == 0) {
+    num1 = 0;
+  } else {
+    num1 = displayHolder.join("");
+    displayHolder = [];
+  }
+});
 
 const slash = document.getElementById("slash");
+slash.addEventListener("click", () => {
+  if(displayHolder.length == 0) {
+    num1 = 0;
+  } else {
+    num1 = displayHolder.join("");
+    displayHolder = [];
+  }
+});
+
+
+const enter = document.getElementById("enter");
+enter.addEventListener("click", () => {
+  num2 = displayHolder.join("");
+});
 
 const nine = document.getElementById("nine");
 nine.addEventListener("click", () => {
-  num1.push(9);
-  display.textContent = num1.join("");
+  displayHolder.push(9);
+  display.textContent = displayHolder.join("");
 });
 
 const eight = document.getElementById("eight");
 eight.addEventListener("click", () => {
-  num1.push(8);
-  display.textContent = num1.join("");
+  displayHolder.push(8);
+  display.textContent = displayHolder.join("");
 });
 
 const seven = document.getElementById("seven");
 seven.addEventListener("click", () => {
-  num1.push(7);
-  display.textContent = num1.join("");
+  displayHolder.push(7);
+  display.textContent = displayHolder.join("");
 });
 
 const six = document.getElementById("six");
 six.addEventListener("click", () => {
-  num1.push(6);
-  display.textContent = num1.join("");
+  displayHolder.push(6);
+  display.textContent = displayHolder.join("");
 });
 
 const five = document.getElementById("five");
 five.addEventListener("click", () => {
-  num1.push(5);
-  display.textContent = num1.join("");
+  displayHolder.push(5);
+  display.textContent = displayHolder.join("");
 });
 
 const four = document.getElementById("four");
 four.addEventListener("click", () => {
-  num1.push(4);
-  display.textContent = num1.join("");
+  displayHolder.push(4);
+  display.textContent = displayHolder.join("");
 });
 
 const three = document.getElementById("three");
 three.addEventListener("click", () => {
-  num1.push(3);
-  display.textContent = num1.join("");
+  displayHolder.push(3);
+  display.textContent = displayHolder.join("");
 });
 
 const two = document.getElementById("two");
 two.addEventListener("click", () => {
-  num1.push(2);
-  display.textContent = num1.join("");
+  displayHolder.push(2);
+  display.textContent = displayHolder.join("");
 });
 
 const one = document.getElementById("one");
 one.addEventListener("click", () => {
-  num1.push(1);
-  display.textContent = num1.join("");
+  displayHolder.push(1);
+  display.textContent = displayHolder.join("");
 });
 
 const zero = document.getElementById("zero");
 zero.addEventListener("click", () => {
-  num1.push(0);
-  display.textContent = num1.join("");
+
+    if(displayHolder.length == 0) {
+      display.textContent = 0;
+    } else if(displayHolder.length > 0) {
+      let zeroCounter = 0;
+      for(let i = 0; i < displayHolder.length; i++) {
+        if(displayHolder[i] == 0) {
+          ++zeroCounter;
+        }
+      }
+      if (zeroCounter != displayHolder.length) {
+        displayHolder.push(0);
+        display.textContent = displayHolder.join("");
+      } else {
+        display.textContent = displayHolder.join("");
+      }
+  }
+
 });
 
 const period = document.getElementById("period");
 period.addEventListener("click", () => {
-  if (!num1.includes(".")) {
-    num1.push(".");
+  if (!displayHolder.includes(".")) {
+    displayHolder.push(".");
   }
-  display.textContent = num1.join("");
+  display.textContent = displayHolder.join("");
 });
