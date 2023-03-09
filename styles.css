@@ -192,18 +192,21 @@ main {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
+  transition: 0.4s;
 }
 
 .sliderCenter {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
+  transition: 0.4s;
 }
 
 .sliderEnd {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-end;
+  transition: 0.4s;
 }
 
 #display {
