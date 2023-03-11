@@ -1,8 +1,8 @@
 let num1 = "",
   num2 = "",
-displayHolder = [];
-
-
+  total = 0,
+  operator = "",
+  displayHolder = [];
 
 // Get all the button elements to add event listeners
 const display = document.getElementById("display");
@@ -61,20 +61,27 @@ const del = document.getElementById("del");
 del.addEventListener("click", () => {
   displayHolder.pop();
   display.textContent = displayHolder.join("");
+  if (displayHolder.length == 0) {
+    display.textContent = 0;
+  }
 });
 
 const reset = document.getElementById("reset");
 reset.addEventListener("click", () => {
   num1 = "";
   num2 = "";
+  total = 0;
+  operator = "";
   displayHolder = [];
   if (displayHolder.length == 0) {
     display.textContent = 0;
   }
 });
 
-function operate(operator,num1, num2) {
-  let number1 = 0, number2 = 0;
+function operate(operator, num1, num2) {
+  let number1 = 0,
+    number2 = 0;
+
   if (num1.contains(".")) {
     number1 = parseFloat(num1);
   } else {
@@ -87,7 +94,20 @@ function operate(operator,num1, num2) {
     number2 = parseInt(num2);
   }
 
-  return operator(number1,number2);
+  switch (operator) {
+    case "+":
+      total = add(number1, number2);
+      display.textContent = total.toString().toLocaleString();
+    case "-":
+      total = subtract(number1, number2);
+      display.textContent = total.toString().toLocaleString();
+    case "*":
+      total = multiply(number1, number2);
+      display.textContent = total.toString().toLocaleString();
+    case "/":
+      total = divide(number1, number2);
+      display.textContent = total.toString().toLocaleString();
+  }
 }
 
 function add(num1, num2) {
@@ -108,125 +128,159 @@ function divide(num1, num2) {
 
 const plus = document.getElementById("plus");
 plus.addEventListener("click", () => {
-  if(displayHolder.length == 0) {
-    num1 = 0;
-  } else {
+  operator = "+";
+  if (displayHolder.length == 0 && num1 == "") {
+    num1 = "";
+  } else if (displayHolder.length != 0 && num1 == "") {
     num1 = displayHolder.join("");
     displayHolder = [];
+  } else if (displayHolder.length != 0 && num1 != "" && num2 == "") {
+    num2 = displayHolder.join("");
+    displayHolder = [];
+  } else if (displayHolder.length != 0 && num1 != "" && num2 != "") {
+    num1 = total.toString();
+    num2 = displayHolder.join("");
+    operate(operator, num1, num2);
+    displayHolder = [];
   }
-  operate(add(), num1, num2);
 });
 
 const minus = document.getElementById("minus");
 minus.addEventListener("click", () => {
-  if(displayHolder.length == 0) {
-    num1 = 0;
-  } else {
+  operator = "-";
+  if (displayHolder.length == 0 && num1 == "") {
+    num1 = "";
+  } else if (displayHolder.length != 0 && num1 == "") {
     num1 = displayHolder.join("");
+    displayHolder = [];
+  } else if (displayHolder.length != 0 && num1 != "" && num2 == "") {
+    num2 = displayHolder.join("");
+    displayHolder = [];
+  } else if (displayHolder.length != 0 && num1 != "" && num2 != "") {
+    num1 = total.toString();
+    num2 = displayHolder.join("");
+    operate(operator, num1, num2);
     displayHolder = [];
   }
 });
 
 const star = document.getElementById("star");
 star.addEventListener("click", () => {
-  if(displayHolder.length == 0) {
-    num1 = 0;
-  } else {
+  operator = "*";
+  if (displayHolder.length == 0 && num1 == "") {
+    num1 = "";
+  } else if (displayHolder.length != 0 && num1 == "") {
     num1 = displayHolder.join("");
+    displayHolder = [];
+  } else if (displayHolder.length != 0 && num1 != "" && num2 == "") {
+    num2 = displayHolder.join("");
+    displayHolder = [];
+  } else if (displayHolder.length != 0 && num1 != "" && num2 != "") {
+    num1 = total.toString();
+    num2 = displayHolder.join("");
+    operate(operator, num1, num2);
     displayHolder = [];
   }
 });
 
 const slash = document.getElementById("slash");
 slash.addEventListener("click", () => {
-  if(displayHolder.length == 0) {
-    num1 = 0;
-  } else {
+  operator = "*";
+  if (displayHolder.length == 0 && num1 == "") {
+    num1 = "";
+  } else if (displayHolder.length != 0 && num1 == "") {
     num1 = displayHolder.join("");
+    displayHolder = [];
+  } else if (displayHolder.length != 0 && num1 != "" && num2 == "") {
+    num2 = displayHolder.join("");
+    displayHolder = [];
+  } else if (displayHolder.length != 0 && num1 != "" && num2 != "") {
+    num1 = total.toString();
+    num2 = displayHolder.join("");
+    operate(operator, num1, num2);
     displayHolder = [];
   }
 });
 
-
 const enter = document.getElementById("enter");
 enter.addEventListener("click", () => {
-  num2 = displayHolder.join("");
+  if (num1 != "" && num2 != "") {
+    operate(operator, num1, num2);
+  }
 });
 
 const nine = document.getElementById("nine");
 nine.addEventListener("click", () => {
   displayHolder.push(9);
-  display.textContent = displayHolder.join("");
+  display.textContent = displayHolder.join("").toLocaleString();
 });
 
 const eight = document.getElementById("eight");
 eight.addEventListener("click", () => {
   displayHolder.push(8);
-  display.textContent = displayHolder.join("");
+  display.textContent = displayHolder.join("").toLocaleString();
 });
 
 const seven = document.getElementById("seven");
 seven.addEventListener("click", () => {
   displayHolder.push(7);
-  display.textContent = displayHolder.join("");
+  display.textContent = displayHolder.join("").toLocaleString();
 });
 
 const six = document.getElementById("six");
 six.addEventListener("click", () => {
   displayHolder.push(6);
-  display.textContent = displayHolder.join("");
+  display.textContent = displayHolder.join("").toLocaleString();
 });
 
 const five = document.getElementById("five");
 five.addEventListener("click", () => {
   displayHolder.push(5);
-  display.textContent = displayHolder.join("");
+  display.textContent = displayHolder.join("").toLocaleString();
 });
 
 const four = document.getElementById("four");
 four.addEventListener("click", () => {
   displayHolder.push(4);
-  display.textContent = displayHolder.join("");
+  display.textContent = displayHolder.join("").toLocaleString();
 });
 
 const three = document.getElementById("three");
 three.addEventListener("click", () => {
   displayHolder.push(3);
-  display.textContent = displayHolder.join("");
+  display.textContent = displayHolder.join("").toLocaleString();
 });
 
 const two = document.getElementById("two");
 two.addEventListener("click", () => {
   displayHolder.push(2);
-  display.textContent = displayHolder.join("");
+  display.textContent = displayHolder.join("").toLocaleString();
 });
 
 const one = document.getElementById("one");
 one.addEventListener("click", () => {
   displayHolder.push(1);
-  display.textContent = displayHolder.join("");
+  display.textContent = displayHolder.join("").toLocaleString();
 });
 
 const zero = document.getElementById("zero");
 zero.addEventListener("click", () => {
-
-    if(displayHolder.length == 0) {
-      display.textContent = 0;
-    } else if(displayHolder.length > 0) {
-      let zeroCounter = 0;
-      for(let i = 0; i < displayHolder.length; i++) {
-        if(displayHolder[i] == 0) {
-          ++zeroCounter;
-        }
+  if (displayHolder.length == 0) {
+    display.textContent = 0;
+  } else if (displayHolder.length > 0) {
+    let zeroCounter = 0;
+    for (let i = 0; i < displayHolder.length; i++) {
+      if (displayHolder[i] == 0) {
+        ++zeroCounter;
       }
-      if (zeroCounter != displayHolder.length) {
-        displayHolder.push(0);
-        display.textContent = displayHolder.join("");
-      } else {
-        display.textContent = displayHolder.join("");
-      }
+    }
+    if (zeroCounter != displayHolder.length) {
+      displayHolder.push(0);
+      display.textContent = displayHolder.join("").toLocaleString();
+    } else {
+      display.textContent = displayHolder.join("").toLocaleString();
+    }
   }
-
 });
 
 const period = document.getElementById("period");
@@ -234,5 +288,5 @@ period.addEventListener("click", () => {
   if (!displayHolder.includes(".")) {
     displayHolder.push(".");
   }
-  display.textContent = displayHolder.join("");
+  display.textContent = displayHolder.join("").toLocaleString();
 });
