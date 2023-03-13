@@ -82,7 +82,7 @@ function operate(operator, num1, num2) {
   let number1 = parseFloat(num1);
   let number2 = parseFloat(num2);
 
- switch (operator) {
+  switch (operator) {
     case "+":
       total = add(number1, number2);
       display.textContent = total.toLocaleString();
@@ -129,45 +129,53 @@ function storeValuesAndOperate(operand) {
     operator = operand;
   } else if (displayHolder.length !== 0 && num1 !== "" && num2 === "") {
     num2 = parseFloat(displayHolder.join(""));
-    operate(operator,num1,num2);  // finish executing the calculation using the previous operand
     operator = operand; // store the new operand in the operator holder
+    operate(operator, num1, num2); // finish executing the calculation using the previous operand
   } else if (displayHolder.length !== 0 && num1 !== "" && num2 !== "") {
     num1 = total;
     num2 = parseFloat(displayHolder.join(""));
-    operate(operator,num1,num2);  // finish executing the calculation using the previous operand
     operator = operand; // store the new operand in the operator holder
+    operate(operator, num1, num2); // finish executing the calculation using the previous operand
+    // operator = operand; // store the new operand in the operator holder
   }
   displayHolder = [];
 }
 
 const plus = document.getElementById("plus");
 plus.addEventListener("click", () => {
+  operator = "+";
   storeValuesAndOperate("+");
 });
 
 const minus = document.getElementById("minus");
 minus.addEventListener("click", () => {
+  operator = "-";
   storeValuesAndOperate("-");
 });
 
 const star = document.getElementById("star");
 star.addEventListener("click", () => {
+  operator = "*";
   storeValuesAndOperate("*");
 });
 
 const slash = document.getElementById("slash");
 slash.addEventListener("click", () => {
+  operator = "/";
   storeValuesAndOperate("/");
 });
 
 const enter = document.getElementById("enter");
 enter.addEventListener("click", () => {
   if (num1 !== "" && num2 !== "" && operator !== "") {
+    num1 = total;
+    num2 = parseFloat(displayHolder.join(""));
     operate(operator, num1, num2);
   } else if (num1 !== "" && num2 === "" && operator !== "") {
     num2 = parseFloat(displayHolder.join(""));
     operate(operator, num1, num2);
   }
+  displayHolder = [];
 });
 
 const nine = document.getElementById("nine");
@@ -249,5 +257,9 @@ period.addEventListener("click", () => {
   if (!displayHolder.includes(".")) {
     displayHolder.push(".");
   }
-  display.textContent = parseFloat(displayHolder.join("")).toLocaleString();
+  if (displayHolder.length === 1) {
+    display.textContent = displayHolder.join("");
+  } else {
+    display.textContent = parseFloat(displayHolder.join("")).toLocaleString();
+  }
 });
