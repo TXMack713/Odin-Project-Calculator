@@ -85,21 +85,18 @@ function operate(operator, num1, num2) {
   switch (operator) {
     case "+":
       total = add(number1, number2);
-      display.textContent = total.toLocaleString();
       break;
     case "-":
       total = subtract(number1, number2);
-      display.textContent = total.toLocaleString();
       break;
     case "*":
       total = multiply(number1, number2);
-      display.textContent = total.toLocaleString();
       break;
     case "/":
       total = divide(number1, number2);
-      display.textContent = total.toLocaleString();
       break;
   }
+  display.textContent = total.toLocaleString();
 }
 
 function add(num1, num2) {
@@ -119,25 +116,22 @@ function divide(num1, num2) {
 }
 
 function storeValuesAndOperate(operand) {
-  if (operator === "") {
-    operator = operand;
-  }
+  let previousOperand = "";
   if (displayHolder.length === 0 && num1 === "") {
     num1 = "";
   } else if (displayHolder.length !== 0 && num1 === "") {
     num1 = parseFloat(displayHolder.join(""));
-    operator = operand;
+    // operator = operand;
   } else if (displayHolder.length !== 0 && num1 !== "" && num2 === "") {
     num2 = parseFloat(displayHolder.join(""));
-    operator = operand; // store the new operand in the operator holder
-    operate(operator, num1, num2); // finish executing the calculation using the previous operand
+    operate(operand, num1, num2);
   } else if (displayHolder.length !== 0 && num1 !== "" && num2 !== "") {
-    num1 = total;
-    num2 = parseFloat(displayHolder.join(""));
-    operator = operand; // store the new operand in the operator holder
-    operate(operator, num1, num2); // finish executing the calculation using the previous operand
-    // operator = operand; // store the new operand in the operator holder
+      num1 = total;
+      num2 = parseFloat(displayHolder.join(""));
+      operate(operand, num1, num2);
+    } 
   }
+  previousOperand = operand;
   displayHolder = [];
 }
 
