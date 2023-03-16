@@ -1,7 +1,7 @@
 @font-face {
-  font-family: "League-Spartan";
-  src: url("./League_Spartan/static/LeagueSpartan-Regular.ttf") format("tff"),
-    url("./League_Spartan/static/LeagueSpartan-Medium.ttf") format("tff");
+  font-family: 'League-Spartan';
+  src: url('./League_Spartan/static/LeagueSpartan-Regular.ttf') format('tff'),
+    url('./League_Spartan/static/LeagueSpartan-Medium.ttf') format('tff');
   font-weight: 700;
   font-style: normal;
 }
@@ -210,16 +210,11 @@ main {
 }
 
 #display {
-  /* grid-area: display; */
-  /* margin-bottom: 2rem; */
   padding: 1rem;
   block-size: 4rem;
   inline-size: 28rem;
   background-color: var(--display-bg-color);
-  /* background-color: hsl(224, 36%, 15%); */
-  /* border: black solid 1px; */
   color: var(--color);
-  /* color: hsl(0, 0%, 100%); */
   border-radius: 1rem;
   display: flex;
   flex-flow: row wrap;
@@ -231,11 +226,11 @@ main {
 #calculator {
   display: grid;
   grid:
-    "seven eight nine del" 3rem
-    "four five six plus" 3rem
-    "one two three minus" 3rem
-    "period zero slash star" 3rem
-    "reset reset enter enter" 3rem
+    'seven eight nine del' 3rem
+    'four five six plus' 3rem
+    'one two three minus' 3rem
+    'period zero slash star' 3rem
+    'reset reset enter enter' 3rem
     / 5.75rem 5.75rem 5.75rem 5.75rem;
   gap: 1rem;
   inline-size: 28rem;
@@ -365,4 +360,176 @@ main {
   color: var(--color);
   /* color: hsl(0, 0, 100%); */
   /* text-decoration: none; */
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    inline-size: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    word-break: keep-all;
+    hyphens: none;
+    -moz-hyphens: none;
+    -webkit-hyphens: none;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-family: sans-serif;
+    background-color: var(--main-bg-color);
+    color: var(--color);
+    font: League-Spartan;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.25;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-content: center;
+    border: var(--color) solid 1.5rem;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+
+  header {
+    text-align: center;
+    justify-self: center;
+  }
+
+  main {
+    align-self: center;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-content: center;
+    max-inline-size: 80vw;
+    row-gap: 1.5rem;
+  }
+
+  #calcHead {
+    color: var(--color);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-content: center;
+  }
+
+  #toggle {
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: center;
+    justify-content: space-between;
+    color: var(--color);
+    font-size: 0.8rem;
+    inline-size: 6rem;
+  }
+
+  #calc {
+    align-self: center;
+  }
+
+  #selector {
+    block-size: 100%;
+    align-self: flex-end;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+  }
+
+  #theme {
+    align-self: flex-end;
+  }
+
+  #themeNumbers {
+    display: flex;
+    justify-content: space-around;
+    inline-size: 4rem;
+  }
+
+  #themeSelector {
+    background-color: var(--toggle-color);
+    inline-size: 1rem;
+    block-size: 1rem;
+    border-radius: 50%;
+  }
+
+  #sliderBar {
+    inline-size: 4rem;
+    background-color: var(--toggle-bg-color);
+    border-radius: 0.5rem;
+  }
+
+  .sliderStart {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    transition: 0.4s;
+  }
+
+  .sliderCenter {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    transition: 0.4s;
+  }
+
+  .sliderEnd {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    transition: 0.4s;
+  }
+
+  #display {
+    padding: 1rem;
+    block-size: 3rem;
+    max-inline-size: 75vw;
+    background-color: var(--display-bg-color);
+    color: var(--color);
+    border-radius: 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-content: center;
+    font-size: 2rem;
+  }
+
+  #calculator {
+    display: grid;
+    grid:
+      'seven eight nine del' 3rem
+      'four five six plus' 3rem
+      'one two three minus' 3rem
+      'period zero slash star' 3rem
+      'reset reset enter enter' 3rem
+      / 4rem 4rem 4rem 4rem;
+    gap: 1rem;
+    max-inline-size: 75vw;
+    justify-content: center;
+    background-color: var(--keypad-bg-color);
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  .calcKey {
+    /* border: black solid 5px; */
+    background-color: var(--key-bg-color);
+    /* background-color: hsl(0, 0%, 100%); */
+    color: var(--key-color);
+    /* color: hsl(221, 14%, 31%); */
+    box-shadow: 0.5rem;
+    border-radius: 0.75rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    font-size: 1.25rem;
+    box-shadow: 0rem 0.125rem var(--key-shadow);
+  }
 }

@@ -128,16 +128,26 @@ function storeValuesAndOperate(operand) {
   } else if (displayHolder.length !== 0 && num1 !== '' && num2 === '') {
     num2 = parseFloat(displayHolder.join(''));
     operate(operand, num1, num2);
-  } else if (displayHolder.length !== 0 && num1 !== '' && num2 !== '') {
-    if (previousOperand === '' || previousOperand !== operand) {
-      num2 = parseFloat(displayHolder.join(''));
-      operate(previousOperand, num1, num2);
-    } else {
-      num2 = parseFloat(displayHolder.join(''));
-      operate(operand, total, num2);
-    }
+  } else if (
+    displayHolder.length !== 0 &&
+    num1 !== '' &&
+    num2 !== '' &&
+    previousOperand === ''
+  ) {
+    num2 = parseFloat(displayHolder.join(''));
+    operate(operand, num1, num2);
+  } else if (
+    displayHolder.length !== 0 &&
+    num1 !== '' &&
+    num2 !== '' &&
+    previousOperand !== operand
+  ) {
+    num1 = total;
+    num2 = parseFloat(displayHolder.join(''));
+    operate(previousOperand, num1, num2);
+    previousOperand = operand;
   }
-  previousOperand = operand;
+
   displayHolder = [];
 }
 
