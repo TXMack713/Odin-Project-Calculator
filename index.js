@@ -1,6 +1,6 @@
 let num1 = '',
   num2 = '',
-  total = 0,
+  total = '',
   operator = '',
   displayHolder = [];
 
@@ -120,29 +120,23 @@ function divide(num1, num2) {
 
 let previousOperand = '';
 function storeValuesAndOperate(operand) {
+  if (operator === '') {
+    num1 = '';
+    num2 = '';
+  }
   if (displayHolder.length === 0 && num1 === '') {
     num1 = '';
   } else if (displayHolder.length !== 0 && num1 === '') {
     num1 = parseFloat(displayHolder.join(''));
-    // operator = operand;
+    previousOperand = operand;
   } else if (displayHolder.length !== 0 && num1 !== '' && num2 === '') {
     num2 = parseFloat(displayHolder.join(''));
-    operate(operand, num1, num2);
-  } else if (
-    displayHolder.length !== 0 &&
-    num1 !== '' &&
-    num2 !== '' &&
-    previousOperand === ''
-  ) {
-    num2 = parseFloat(displayHolder.join(''));
-    operate(operand, num1, num2);
-  } else if (
-    displayHolder.length !== 0 &&
-    num1 !== '' &&
-    num2 !== '' &&
-    previousOperand !== operand
-  ) {
-    num1 = total;
+    operate(previousOperand, num1, num2);
+    previousOperand = operand;
+  } else if (displayHolder.length !== 0 && num1 !== '' && num2 !== '') {
+    if (total !== '') {
+      num1 = total;
+    }
     num2 = parseFloat(displayHolder.join(''));
     operate(previousOperand, num1, num2);
     previousOperand = operand;
@@ -185,6 +179,7 @@ enter.addEventListener('click', () => {
     num2 = parseFloat(displayHolder.join(''));
     operate(operator, num1, num2);
   }
+  operator = '';
   displayHolder = [];
 });
 
