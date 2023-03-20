@@ -120,10 +120,6 @@ function divide(num1, num2) {
 
 let previousOperand = '';
 function storeValuesAndOperate(operand) {
-  if (operator === '') {
-    num1 = '';
-    num2 = '';
-  }
   if (displayHolder.length === 0 && num1 === '') {
     num1 = '';
   } else if (displayHolder.length !== 0 && num1 === '') {
@@ -137,6 +133,11 @@ function storeValuesAndOperate(operand) {
     if (total !== '') {
       num1 = total;
     }
+    num2 = parseFloat(displayHolder.join(''));
+    operate(previousOperand, num1, num2);
+    previousOperand = operand;
+  } else if (displayHolder.length === 0 && total !== '') {
+    num1 = total;
     num2 = parseFloat(displayHolder.join(''));
     operate(previousOperand, num1, num2);
     previousOperand = operand;
@@ -185,60 +186,100 @@ enter.addEventListener('click', () => {
 
 const nine = document.getElementById('nine');
 nine.addEventListener('click', () => {
+  if (operator === '' && num1 !== '') {
+    num1 = '';
+    num2 = '';
+  }
   displayHolder.push(9);
   display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
 });
 
 const eight = document.getElementById('eight');
 eight.addEventListener('click', () => {
+  if (operator === '' && num1 !== '') {
+    num1 = '';
+    num2 = '';
+  }
   displayHolder.push(8);
   display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
 });
 
 const seven = document.getElementById('seven');
 seven.addEventListener('click', () => {
+  if (operator === '' && num1 !== '') {
+    num1 = '';
+    num2 = '';
+  }
   displayHolder.push(7);
   display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
 });
 
 const six = document.getElementById('six');
 six.addEventListener('click', () => {
+  if (operator === '' && num1 !== '') {
+    num1 = '';
+    num2 = '';
+  }
   displayHolder.push(6);
   display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
 });
 
 const five = document.getElementById('five');
 five.addEventListener('click', () => {
+  if (operator === '' && num1 !== '') {
+    num1 = '';
+    num2 = '';
+  }
   displayHolder.push(5);
   display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
 });
 
 const four = document.getElementById('four');
 four.addEventListener('click', () => {
+  if (operator === '' && num1 !== '') {
+    num1 = '';
+    num2 = '';
+  }
   displayHolder.push(4);
   display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
 });
 
 const three = document.getElementById('three');
 three.addEventListener('click', () => {
+  if (operator === '' && num1 !== '') {
+    num1 = '';
+    num2 = '';
+  }
   displayHolder.push(3);
   display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
 });
 
 const two = document.getElementById('two');
 two.addEventListener('click', () => {
+  if (operator === '' && num1 !== '') {
+    num1 = '';
+    num2 = '';
+  }
   displayHolder.push(2);
   display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
 });
 
 const one = document.getElementById('one');
 one.addEventListener('click', () => {
+  if (operator === '' && num1 !== '') {
+    num1 = '';
+    num2 = '';
+  }
   displayHolder.push(1);
   display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
 });
 
 const zero = document.getElementById('zero');
 zero.addEventListener('click', () => {
+  if (operator === '' && num1 !== '') {
+    num1 = '';
+    num2 = '';
+  }
   if (displayHolder.length === 0) {
     display.textContent = 0;
   } else if (displayHolder.length > 0) {
@@ -259,6 +300,10 @@ zero.addEventListener('click', () => {
 
 const period = document.getElementById('period');
 period.addEventListener('click', () => {
+  if (operator === '' && num1 !== '') {
+    num1 = '';
+    num2 = '';
+  }
   if (!displayHolder.includes('.')) {
     displayHolder.push('.');
   }
