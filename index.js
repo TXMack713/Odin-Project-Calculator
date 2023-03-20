@@ -85,19 +85,19 @@ function operate(operator, num1, num2) {
   switch (operator) {
     case '+':
       total = add(number1, number2);
-      display.textContent = total.toLocaleString();
+      display.textContent = total.toPrecision().toLocaleString();
       break;
     case '-':
       total = subtract(number1, number2);
-      display.textContent = total.toLocaleString();
+      display.textContent = total.toPrecision().toLocaleString();
       break;
     case '*':
       total = multiply(number1, number2);
-      display.textContent = total.toLocaleString();
+      display.textContent = total.toPrecision().toLocaleString();
       break;
     case '/':
       total = divide(number1, number2);
-      display.textContent = total.toLocaleString();
+      display.textContent = total.toPrecision().toLocaleString();
       break;
   }
 }
