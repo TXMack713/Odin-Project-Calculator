@@ -138,8 +138,6 @@ function storeValuesAndOperate(operand) {
     previousOperand = operand;
   } else if (displayHolder.length === 0 && total !== '') {
     num1 = total;
-    num2 = parseFloat(displayHolder.join(''));
-    operate(previousOperand, num1, num2);
     previousOperand = operand;
   }
 
