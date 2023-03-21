@@ -215,20 +215,20 @@ main {
   color: var(--color);
   border-radius: 1rem;
   display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-content: flex-end;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: flex-end;
   font-size: 2rem;
 }
 
 #calcDisplay {
   block-size: 1rem;
-  font-size: 0.5rem;
+  font-size: 1rem;
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
   justify-content: flex-end;
-  align-self: flex-start;
-  align-content: flex-start;
+  align-self: flex-end;
+  align-items: flex-start;
 }
 
 #calculator {
@@ -506,17 +506,17 @@ main {
     color: var(--color);
     border-radius: 1rem;
     display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-content: flex-end;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
     font-size: 2rem;
   }
 
   #calcDisplay {
     block-size: 1rem;
-    font-size: 0.5rem;
+    font-size: 1rem;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     justify-content: flex-end;
     align-self: flex-start;
     align-content: flex-start;

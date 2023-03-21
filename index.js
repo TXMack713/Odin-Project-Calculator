@@ -128,8 +128,14 @@ function operate(operator, num1, num2) {
         total.toString().length >= 15
       ) {
         display.textContent = numberFormat2.format(total);
+        calcDisplay.textContent =
+          numberFormat2.format(parseFloat(num1)) + operator;
       } else {
         display.textContent = numberFormat.format(total);
+        calcDisplay.textContent =
+          numberFormat.format(parseFloat(num1)) +
+          operator +
+          numberFormat.format(parseFloat(num2));
       }
       break;
     case '*':
@@ -139,8 +145,14 @@ function operate(operator, num1, num2) {
         total.toString().length >= 15
       ) {
         display.textContent = numberFormat2.format(total);
+        calcDisplay.textContent =
+          numberFormat2.format(parseFloat(num1)) + operator;
       } else {
         display.textContent = numberFormat.format(total);
+        calcDisplay.textContent =
+          numberFormat.format(parseFloat(num1)) +
+          operator +
+          numberFormat.format(parseFloat(num2));
       }
       break;
     case '/':
@@ -154,8 +166,16 @@ function operate(operator, num1, num2) {
           total.toString().length >= 15
         ) {
           display.textContent = numberFormat2.format(total);
+          calcDisplay.textContent =
+            numberFormat2.format(parseFloat(num1)) +
+            operator +
+            numberFormat2.format(parseFloat(num2));
         } else {
           display.textContent = numberFormat.format(total);
+          calcDisplay.textContent =
+            numberFormat.format(parseFloat(num1)) +
+            operator +
+            numberFormat.format(parseFloat(num2));
         }
         break;
       }
