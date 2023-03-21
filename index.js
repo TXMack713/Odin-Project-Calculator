@@ -14,6 +14,13 @@ if (displayHolder.length === 0) {
   );
 }
 
+const calcDisplay = document.getElementById('calcDisplay');
+if (num1 === '') {
+  calcDisplay.textContent = '';
+} else if (num1 !== '') {
+  calcDisplay.textContent = parseFloat(num1) + operator;
+}
+
 const sliderBar = document.getElementById('sliderBar');
 
 const themeSelector = document.getElementById('themeSelector');
@@ -104,8 +111,14 @@ function operate(operator, num1, num2) {
         total.toString().length >= 15
       ) {
         display.textContent = numberFormat2.format(total);
+        calcDisplay.textContent =
+          numberFormat2.format(parseFloat(num1)) + operator;
       } else {
         display.textContent = numberFormat.format(total);
+        calcDisplay.textContent =
+          numberFormat.format(parseFloat(num1)) +
+          operator +
+          numberFormat.format(parseFloat(num2));
       }
       break;
     case '-':
