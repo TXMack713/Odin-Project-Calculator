@@ -99,7 +99,10 @@ function operate(operator, num1, num2) {
   switch (operator) {
     case '+':
       total = add(number1, number2);
-      if (total.toString().includes('0.000') || total.toString().length >= 12) {
+      if (
+        (total.toString().includes('0.000') && total < 1) ||
+        total.toString().length >= 15
+      ) {
         display.textContent = numberFormat2.format(total);
       } else {
         display.textContent = numberFormat.format(total);
@@ -107,7 +110,10 @@ function operate(operator, num1, num2) {
       break;
     case '-':
       total = subtract(number1, number2);
-      if (total.toString().includes('0.000') || total.toString().length >= 12) {
+      if (
+        (total.toString().includes('0.000') && total < 1) ||
+        total.toString().length >= 15
+      ) {
         display.textContent = numberFormat2.format(total);
       } else {
         display.textContent = numberFormat.format(total);
@@ -115,7 +121,10 @@ function operate(operator, num1, num2) {
       break;
     case '*':
       total = multiply(number1, number2);
-      if (total.toString().includes('0.000') || total.toString().length >= 12) {
+      if (
+        (total.toString().includes('0.000') && total < 1) ||
+        total.toString().length >= 15
+      ) {
         display.textContent = numberFormat2.format(total);
       } else {
         display.textContent = numberFormat.format(total);
@@ -123,7 +132,10 @@ function operate(operator, num1, num2) {
       break;
     case '/':
       total = divide(number1, number2);
-      if (total.toString().includes('0.000') || total.toString().length >= 12) {
+      if (
+        (total.toString().includes('0.000') && total < 1) ||
+        total.toString().length >= 15
+      ) {
         display.textContent = numberFormat2.format(total);
       } else {
         display.textContent = numberFormat.format(total);
