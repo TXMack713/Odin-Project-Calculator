@@ -226,9 +226,9 @@ main {
   font-size: 1rem;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-end;
-  align-self: flex-end;
-  align-items: flex-start;
+    justify-content: flex-end;
+    align-self: flex-end;
+    align-items: flex-start;
 }
 
 #calculator {
@@ -518,8 +518,8 @@ main {
     display: flex;
     flex-flow: row nowrap;
     justify-content: flex-end;
-    align-self: flex-start;
-    align-content: flex-start;
+    align-self: flex-end;
+    align-items: flex-start;
   }
 
   #calculator {
