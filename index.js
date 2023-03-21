@@ -9,7 +9,9 @@ const display = document.getElementById('display');
 if (displayHolder.length === 0) {
   display.textContent = 0;
 } else {
-  display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
+  display.textContent = new Intl.numberFormat.format(
+    parseFloat(displayHolder.join(''))
+  );
 }
 
 const sliderBar = document.getElementById('sliderBar');
@@ -56,11 +58,23 @@ function setTheme3() {
   root.classList.add('theme3');
 }
 
+const numberFormat = new Intl.NumberFormat('en-US', {
+  notation: 'standard',
+  maximumFractionDigits: 10,
+  maximumSignificantDigits: 12,
+});
+
+const numberFormat2 = new Intl.NumberFormat('en-US', {
+  notation: 'scientific',
+  maximumFractionDigits: 10,
+  maximumSignificantDigits: 12,
+});
+
 const del = document.getElementById('del');
 
 del.addEventListener('click', () => {
   displayHolder.pop();
-  display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
+  display.textContent = numberFormat.format(parseFloat(displayHolder.join('')));
   if (displayHolder.length === 0) {
     display.textContent = 0;
   }
@@ -85,19 +99,35 @@ function operate(operator, num1, num2) {
   switch (operator) {
     case '+':
       total = add(number1, number2);
-      display.textContent = total.toPrecision().toLocaleString();
+      if (total.toString().includes('0.000') || total.toString().length >= 12) {
+        display.textContent = numberFormat2.format(total);
+      } else {
+        display.textContent = numberFormat.format(total);
+      }
       break;
     case '-':
       total = subtract(number1, number2);
-      display.textContent = total.toPrecision().toLocaleString();
+      if (total.toString().includes('0.000') || total.toString().length >= 12) {
+        display.textContent = numberFormat2.format(total);
+      } else {
+        display.textContent = numberFormat.format(total);
+      }
       break;
     case '*':
       total = multiply(number1, number2);
-      display.textContent = total.toPrecision().toLocaleString();
+      if (total.toString().includes('0.000') || total.toString().length >= 12) {
+        display.textContent = numberFormat2.format(total);
+      } else {
+        display.textContent = numberFormat.format(total);
+      }
       break;
     case '/':
       total = divide(number1, number2);
-      display.textContent = total.toPrecision().toLocaleString();
+      if (total.toString().includes('0.000') || total.toString().length >= 12) {
+        display.textContent = numberFormat2.format(total);
+      } else {
+        display.textContent = numberFormat.format(total);
+      }
       break;
   }
 }
@@ -174,9 +204,18 @@ enter.addEventListener('click', () => {
     num1 = total;
     num2 = parseFloat(displayHolder.join(''));
     operate(operator, num1, num2);
+    previousOperand = operator;
   } else if (num1 !== '' && num2 === '' && operator !== '') {
     num2 = parseFloat(displayHolder.join(''));
     operate(operator, num1, num2);
+    previousOperand = operator;
+  } else if (
+    num1 !== '' &&
+    num2 !== '' &&
+    operator === '' &&
+    previousOperand !== ''
+  ) {
+    operate(previousOperand, total, num2);
   }
   operator = '';
   displayHolder = [];
@@ -189,7 +228,15 @@ nine.addEventListener('click', () => {
     num2 = '';
   }
   displayHolder.push(9);
-  display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
+  if (displayHolder.length > 12) {
+    display.textContent = numberFormat2.format(
+      parseFloat(displayHolder.join(''))
+    );
+  } else {
+    display.textContent = numberFormat.format(
+      parseFloat(displayHolder.join(''))
+    );
+  }
 });
 
 const eight = document.getElementById('eight');
@@ -199,7 +246,15 @@ eight.addEventListener('click', () => {
     num2 = '';
   }
   displayHolder.push(8);
-  display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
+  if (displayHolder.length > 12) {
+    display.textContent = numberFormat2.format(
+      parseFloat(displayHolder.join(''))
+    );
+  } else {
+    display.textContent = numberFormat.format(
+      parseFloat(displayHolder.join(''))
+    );
+  }
 });
 
 const seven = document.getElementById('seven');
@@ -209,7 +264,15 @@ seven.addEventListener('click', () => {
     num2 = '';
   }
   displayHolder.push(7);
-  display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
+  if (displayHolder.length > 12) {
+    display.textContent = numberFormat2.format(
+      parseFloat(displayHolder.join(''))
+    );
+  } else {
+    display.textContent = numberFormat.format(
+      parseFloat(displayHolder.join(''))
+    );
+  }
 });
 
 const six = document.getElementById('six');
@@ -219,7 +282,15 @@ six.addEventListener('click', () => {
     num2 = '';
   }
   displayHolder.push(6);
-  display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
+  if (displayHolder.length > 12) {
+    display.textContent = numberFormat2.format(
+      parseFloat(displayHolder.join(''))
+    );
+  } else {
+    display.textContent = numberFormat.format(
+      parseFloat(displayHolder.join(''))
+    );
+  }
 });
 
 const five = document.getElementById('five');
@@ -229,7 +300,15 @@ five.addEventListener('click', () => {
     num2 = '';
   }
   displayHolder.push(5);
-  display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
+  if (displayHolder.length > 12) {
+    display.textContent = numberFormat2.format(
+      parseFloat(displayHolder.join(''))
+    );
+  } else {
+    display.textContent = numberFormat.format(
+      parseFloat(displayHolder.join(''))
+    );
+  }
 });
 
 const four = document.getElementById('four');
@@ -239,7 +318,15 @@ four.addEventListener('click', () => {
     num2 = '';
   }
   displayHolder.push(4);
-  display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
+  if (displayHolder.length > 12) {
+    display.textContent = numberFormat2.format(
+      parseFloat(displayHolder.join(''))
+    );
+  } else {
+    display.textContent = numberFormat.format(
+      parseFloat(displayHolder.join(''))
+    );
+  }
 });
 
 const three = document.getElementById('three');
@@ -249,7 +336,15 @@ three.addEventListener('click', () => {
     num2 = '';
   }
   displayHolder.push(3);
-  display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
+  if (displayHolder.length > 12) {
+    display.textContent = numberFormat2.format(
+      parseFloat(displayHolder.join(''))
+    );
+  } else {
+    display.textContent = numberFormat.format(
+      parseFloat(displayHolder.join(''))
+    );
+  }
 });
 
 const two = document.getElementById('two');
@@ -259,7 +354,15 @@ two.addEventListener('click', () => {
     num2 = '';
   }
   displayHolder.push(2);
-  display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
+  if (displayHolder.length > 12) {
+    display.textContent = numberFormat2.format(
+      parseFloat(displayHolder.join(''))
+    );
+  } else {
+    display.textContent = numberFormat.format(
+      parseFloat(displayHolder.join(''))
+    );
+  }
 });
 
 const one = document.getElementById('one');
@@ -269,7 +372,15 @@ one.addEventListener('click', () => {
     num2 = '';
   }
   displayHolder.push(1);
-  display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
+  if (displayHolder.length > 12) {
+    display.textContent = numberFormat2.format(
+      parseFloat(displayHolder.join(''))
+    );
+  } else {
+    display.textContent = numberFormat.format(
+      parseFloat(displayHolder.join(''))
+    );
+  }
 });
 
 const zero = document.getElementById('zero');
@@ -289,9 +400,25 @@ zero.addEventListener('click', () => {
     }
     if (zeroCounter !== displayHolder.length) {
       displayHolder.push(0);
-      display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
+      if (displayHolder.length > 12) {
+        display.textContent = numberFormat2.format(
+          parseFloat(displayHolder.join(''))
+        );
+      } else {
+        display.textContent = numberFormat.format(
+          parseFloat(displayHolder.join(''))
+        );
+      }
     } else {
-      display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
+      if (displayHolder.length > 12) {
+        display.textContent = numberFormat2.format(
+          parseFloat(displayHolder.join(''))
+        );
+      } else {
+        display.textContent = numberFormat.format(
+          parseFloat(displayHolder.join(''))
+        );
+      }
     }
   }
 });
@@ -308,6 +435,8 @@ period.addEventListener('click', () => {
   if (displayHolder.length === 1) {
     display.textContent = displayHolder.join('');
   } else {
-    display.textContent = parseFloat(displayHolder.join('')).toLocaleString();
+    display.textContent = numberFormat.format(
+      parseFloat(displayHolder.join(''))
+    );
   }
 });
