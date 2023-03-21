@@ -455,8 +455,11 @@ period.addEventListener('click', () => {
 
 // For later keyboard implementation
 /*
-window.addEventListener('keydown', function (event) {
-  switch (event.key) {
+document.addEventListener('keyup', function (event) {
+  const keyName = event.key;
+  console.log(keyName);
+  console.log(keyName == 9);
+  switch (keyName) {
     case 0:
       if (operator === '' && num1 !== '') {
         num1 = '';
@@ -495,8 +498,17 @@ window.addEventListener('keydown', function (event) {
         }
       }
       break;
-
-    case event.key >= 1 && event.key <= 9:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+      alert('you entered ' + keyName);
+      console.log('Entered key ' + keyName);
       if (operator === '' && num1 !== '') {
         num1 = '';
         num2 = '';
