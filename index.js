@@ -440,3 +440,66 @@ period.addEventListener('click', () => {
     );
   }
 });
+
+// For later keyboard implementation
+/*
+window.addEventListener('keydown', function (event) {
+  switch (event.key) {
+    case 0:
+      if (operator === '' && num1 !== '') {
+        num1 = '';
+        num2 = '';
+      }
+      if (displayHolder.length === 0) {
+        display.textContent = 0;
+      } else if (displayHolder.length > 0) {
+        let zeroCounter = 0;
+        for (let i = 0; i < displayHolder.length; i++) {
+          if (displayHolder[i] === 0) {
+            ++zeroCounter;
+          }
+        }
+        if (zeroCounter !== displayHolder.length) {
+          displayHolder.push(0);
+          if (displayHolder.length > 12) {
+            display.textContent = numberFormat2.format(
+              parseFloat(displayHolder.join(''))
+            );
+          } else {
+            display.textContent = numberFormat.format(
+              parseFloat(displayHolder.join(''))
+            );
+          }
+        } else {
+          if (displayHolder.length > 12) {
+            display.textContent = numberFormat2.format(
+              parseFloat(displayHolder.join(''))
+            );
+          } else {
+            display.textContent = numberFormat.format(
+              parseFloat(displayHolder.join(''))
+            );
+          }
+        }
+      }
+      break;
+
+    case event.key >= 1 && event.key <= 9:
+      if (operator === '' && num1 !== '') {
+        num1 = '';
+        num2 = '';
+      }
+      displayHolder.push(event.key);
+      if (displayHolder.length > 12) {
+        display.textContent = numberFormat2.format(
+          parseFloat(displayHolder.join(''))
+        );
+      } else {
+        display.textContent = numberFormat.format(
+          parseFloat(displayHolder.join(''))
+        );
+      }
+      break;
+  }
+});
+*/
