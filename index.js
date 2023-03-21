@@ -61,13 +61,13 @@ function setTheme3() {
 const numberFormat = new Intl.NumberFormat('en-US', {
   notation: 'standard',
   maximumFractionDigits: 10,
-  maximumSignificantDigits: 12,
+  maximumSignificantDigits: 15,
 });
 
 const numberFormat2 = new Intl.NumberFormat('en-US', {
   notation: 'scientific',
   maximumFractionDigits: 10,
-  maximumSignificantDigits: 12,
+  maximumSignificantDigits: 15,
 });
 
 const del = document.getElementById('del');
@@ -454,13 +454,16 @@ period.addEventListener('click', () => {
 });
 
 // For later keyboard implementation
-/*
-document.addEventListener('keyup', function (event) {
+
+document.addEventListener('keydown', function (event) {
   const keyName = event.key;
-  console.log(keyName);
+  /*console.log(typeof event.key);
+  console.log(typeof keyName);
+  console.log('This key is ' + keyName);
   console.log(keyName == 9);
+  */
   switch (keyName) {
-    case 0:
+    case '0':
       if (operator === '' && num1 !== '') {
         num1 = '';
         num2 = '';
@@ -498,17 +501,17 @@ document.addEventListener('keyup', function (event) {
         }
       }
       break;
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-    case 6:
-    case 7:
-    case 8:
-    case 9:
-      alert('you entered ' + keyName);
-      console.log('Entered key ' + keyName);
+    case '1':
+    case '2':
+    case '3':
+    case '4':
+    case '5':
+    case '6':
+    case '7':
+    case '8':
+    case '9':
+      /* alert('you entered ' + keyName);
+      console.log('Entered key ' + keyName);*/
       if (operator === '' && num1 !== '') {
         num1 = '';
         num2 = '';
@@ -524,6 +527,78 @@ document.addEventListener('keyup', function (event) {
         );
       }
       break;
+    case '.':
+      if (operator === '' && num1 !== '') {
+        num1 = '';
+        num2 = '';
+      }
+      if (!displayHolder.includes('.')) {
+        displayHolder.push('.');
+      }
+      if (displayHolder.length === 1) {
+        display.textContent = displayHolder.join('');
+      } else {
+        display.textContent = numberFormat.format(
+          parseFloat(displayHolder.join(''))
+        );
+      }
+      break;
+    case '/':
+      operator = '/';
+      storeValuesAndOperate('/');
+      break;
+    case '*':
+      operator = '*';
+      storeValuesAndOperate('*');
+      break;
+    case '-':
+      operator = '-';
+      storeValuesAndOperate('-');
+      break;
+    case '+':
+      operator = '+';
+      storeValuesAndOperate('+');
+      break;
+    case 'Enter':
+      if (num1 !== '' && num2 !== '' && operator !== '') {
+        num1 = total;
+        num2 = parseFloat(displayHolder.join(''));
+        operate(operator, num1, num2);
+        previousOperand = operator;
+      } else if (num1 !== '' && num2 === '' && operator !== '') {
+        num2 = parseFloat(displayHolder.join(''));
+        operate(operator, num1, num2);
+        previousOperand = operator;
+      } else if (
+        num1 !== '' &&
+        num2 !== '' &&
+        operator === '' &&
+        previousOperand !== ''
+      ) {
+        operate(previousOperand, total, num2);
+      }
+      operator = '';
+      displayHolder = [];
+      break;
+    case 'Escape':
+      num1 = '';
+      num2 = '';
+      total = 0;
+      operator = '';
+      displayHolder = [];
+      if (displayHolder.length === 0) {
+        display.textContent = 0;
+      }
+      break;
+    case 'Backspace':
+    case 'Delete':
+      displayHolder.pop();
+      display.textContent = numberFormat.format(
+        parseFloat(displayHolder.join(''))
+      );
+      if (displayHolder.length === 0) {
+        display.textContent = 0;
+      }
+      break;
   }
 });
-*/
