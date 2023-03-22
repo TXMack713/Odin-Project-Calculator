@@ -97,6 +97,7 @@ reset.addEventListener('click', () => {
   if (displayHolder.length === 0) {
     display.textContent = 0;
   }
+  calcDisplay.textContent = '';
 });
 
 function operate(operator, num1, num2) {
@@ -440,7 +441,16 @@ zero.addEventListener('click', () => {
     num2 = '';
   }
   if (displayHolder.length === 0) {
-    display.textContent = 0;
+    displayHolder.push(0);
+    if (displayHolder.length > 12) {
+      display.textContent = numberFormat2.format(
+        parseFloat(displayHolder.join(''))
+      );
+    } else {
+      display.textContent = numberFormat.format(
+        parseFloat(displayHolder.join(''))
+      );
+    }
   } else if (displayHolder.length > 0) {
     let zeroCounter = 0;
     for (let i = 0; i < displayHolder.length; i++) {
@@ -507,7 +517,16 @@ document.addEventListener('keydown', function (event) {
         num2 = '';
       }
       if (displayHolder.length === 0) {
-        display.textContent = 0;
+        displayHolder.push(0);
+        if (displayHolder.length > 12) {
+          display.textContent = numberFormat2.format(
+            parseFloat(displayHolder.join(''))
+          );
+        } else {
+          display.textContent = numberFormat.format(
+            parseFloat(displayHolder.join(''))
+          );
+        }
       } else if (displayHolder.length > 0) {
         let zeroCounter = 0;
         for (let i = 0; i < displayHolder.length; i++) {
@@ -626,6 +645,7 @@ document.addEventListener('keydown', function (event) {
       displayHolder = [];
       if (displayHolder.length === 0) {
         display.textContent = 0;
+        calcDisplay.textContent = '';
       }
       break;
     case 'Backspace':
