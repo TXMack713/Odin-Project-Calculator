@@ -65,16 +65,28 @@ function setTheme3() {
   root.classList.add('theme3');
 }
 
+function errorReset() {
+  num1 = '';
+  num2 = '';
+  total = 0;
+  operator = '';
+  displayHolder = [];
+  if (displayHolder.length === 0) {
+    display.textContent = 0;
+  }
+  calcDisplay.textContent = '';
+}
+
 const numberFormat = new Intl.NumberFormat('en-US', {
   notation: 'standard',
   maximumFractionDigits: 10,
-  maximumSignificantDigits: 15,
+  maximumSignificantDigits: 12,
 });
 
 const numberFormat2 = new Intl.NumberFormat('en-US', {
   notation: 'scientific',
   maximumFractionDigits: 10,
-  maximumSignificantDigits: 15,
+  maximumSignificantDigits: 12,
 });
 
 const del = document.getElementById('del');
@@ -109,7 +121,7 @@ function operate(operator, num1, num2) {
       total = add(number1, number2);
       if (
         (total.toString().includes('0.000') && total < 1) ||
-        total.toString().length >= 15
+        total.toString().length >= 12
       ) {
         display.textContent = numberFormat2.format(total);
         calcDisplay.textContent =
@@ -126,7 +138,7 @@ function operate(operator, num1, num2) {
       total = subtract(number1, number2);
       if (
         (total.toString().includes('0.000') && total < 1) ||
-        total.toString().length >= 15
+        total.toString().length >= 12
       ) {
         display.textContent = numberFormat2.format(total);
         calcDisplay.textContent =
@@ -143,7 +155,7 @@ function operate(operator, num1, num2) {
       total = multiply(number1, number2);
       if (
         (total.toString().includes('0.000') && total < 1) ||
-        total.toString().length >= 15
+        total.toString().length >= 12
       ) {
         display.textContent = numberFormat2.format(total);
         calcDisplay.textContent =
@@ -159,12 +171,13 @@ function operate(operator, num1, num2) {
     case '/':
       if (number2 === 0) {
         alert('Error! Division by zero not permitted');
+        errorReset();
         break;
       } else {
         total = divide(number1, number2);
         if (
           (total.toString().includes('0.000') && total < 1) ||
-          total.toString().length >= 15
+          total.toString().length >= 12
         ) {
           display.textContent = numberFormat2.format(total);
           calcDisplay.textContent =
