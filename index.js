@@ -206,15 +206,15 @@ function storeValuesAndOperate(operand) {
   } else if (displayHolder.length !== 0 && num1 === '') {
     num1 = parseFloat(displayHolder.join(''));
     previousOperand = operand;
-    calcDisplay.textContent = numberFormat2.format(parseFloat(num1)) + operator;
+    calcDisplay.textContent = numberFormat.format(parseFloat(num1)) + operator;
   } else if (displayHolder.length !== 0 && num1 !== '' && num2 === '') {
     num2 = parseFloat(displayHolder.join(''));
     operate(previousOperand, num1, num2);
     previousOperand = operand;
     calcDisplay.textContent =
-      numberFormat2.format(parseFloat(num1)) +
+      numberFormat.format(parseFloat(num1)) +
       operator +
-      numberFormat2.format(parseFloat(num2));
+      numberFormat.format(parseFloat(num2));
   } else if (displayHolder.length !== 0 && num1 !== '' && num2 !== '') {
     if (total !== '') {
       num1 = total;
